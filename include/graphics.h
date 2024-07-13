@@ -4933,5 +4933,15 @@ extern const u16 gUnknown_8E9C418[];
 // pokedex_screen
 extern const u16 gDexScreen_TopMenuIconPals_AtoZ[];
 extern const u32 gDexScreen_TopMenuIconTiles_AtoZ[];
-
+//Main Menu
+extern const u16 sMainMenuTextPal[];
+extern const u16 sMainMenuTextFemalePal[];
+extern const u16 gPalMainMenuBG[];
+extern const u16 gPalMainMenuNoSel[];
+extern const u16 gPalMainMenuSel[];
+extern const u32 gTilesMainMenuBG1[];
+extern const u32 gTilesMainMenuBG2[];
+extern const u32 gMapMainMenuBG2[];
+extern const u32 gMapMainMenuNewGame[];
+extern const u32 gMapMainMenuContinue[];
 #endif //GUARD_GRAPHICS_H
