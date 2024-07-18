@@ -237,39 +237,13 @@ static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
 			gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
             gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;
             break;
-        case SAVE_STATUS_INVALID:
-            SetStdFrame0OnBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
-            if (gSaveBlock2Ptr->optionsLanguage == ENG)
-				PrintSaveErrorStatus(taskId, gText_SaveFileHasBeenDeleted);
-            if (gSaveBlock2Ptr->optionsLanguage == SPA)
-				PrintSaveErrorStatus(taskId, gText_SaveFileHasBeenDeletedSpa);
-            break;
-        case SAVE_STATUS_ERROR:
-            SetStdFrame0OnBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
-            if (gSaveBlock2Ptr->optionsLanguage == ENG)
-				PrintSaveErrorStatus(taskId, gText_SaveFileCorruptedPrevWillBeLoaded);
-            if (gSaveBlock2Ptr->optionsLanguage == SPA)
-				PrintSaveErrorStatus(taskId, gText_SaveFileCorruptedPrevWillBeLoadedSpa);
-			gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
-            break;
-        case SAVE_STATUS_EMPTY:
+        
         default:
             LoadUserFrameToBg(0);
             gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
             gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;
             break;
-        case SAVE_STATUS_NO_FLASH:
-            SetStdFrame0OnBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
-            if (gSaveBlock2Ptr->optionsLanguage == ENG)
-				PrintSaveErrorStatus(taskId, gText_1MSubCircuitBoardNotInstalled);
-            if (gSaveBlock2Ptr->optionsLanguage == SPA)
-				PrintSaveErrorStatus(taskId, gText_1MSubCircuitBoardNotInstalledSpa);
-            break;
         }
-    }
 }
 
 static void PrintSaveErrorStatus(u8 taskId, const u8 *str)
@@ -330,33 +304,13 @@ static void Task_PrintMainMenuText(u8 taskId)
 	FillWindowPixelBuffer(0, 0);
     switch (gTasks[taskId].tMenuType)
     {
-    case MAIN_MENU_NEWGAME:
-    default:
-		LZ77UnCompVram(gMapMainMenuNewGame, (void *)(VRAM + 0xE800));
-		if (gSaveBlock2Ptr->optionsLanguage == ENG)
-        {
-			PrintMainMenuItem(gText_NewGame, 24, 16, 0);
-			PrintMainMenuItem(gText_Options, 24, 40, 0);
-		}
-		if (gSaveBlock2Ptr->optionsLanguage == SPA)
-        {
-			PrintMainMenuItem(gText_NewGameSpa, 24, 16, 0);
-			PrintMainMenuItem(gText_OptionsSpa, 24, 40, 0);
-		}
-        break;
+    
     case MAIN_MENU_CONTINUE:
 		LZ77UnCompVram(gMapMainMenuContinue, (void *)(VRAM + 0xE800));      
-        if (gSaveBlock2Ptr->optionsLanguage == ENG)
 		{
 			PrintMainMenuItem(gText_Continue, 24, 8, 0);
 			PrintMainMenuItem(gText_NewGame, 24, 112, 0);
 			PrintMainMenuItem(gText_Options, 24, 136, 0);
-		}
-		if (gSaveBlock2Ptr->optionsLanguage == SPA)
-		{
-			PrintMainMenuItem(gText_ContinueSpa, 24, 8, 0);
-			PrintMainMenuItem(gText_NewGameSpa, 24, 112, 0);
-			PrintMainMenuItem(gText_OptionsSpa, 24, 136, 0);
 		}
 		PrintContinueStats();
         break;
@@ -587,10 +541,7 @@ static void PrintPlayTime(void)
     timePtr = ConvertIntToDecimalStringN(time, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, 3);
     *timePtr++ = CHAR_COLON;
     ConvertIntToDecimalStringN(timePtr, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
-	if (gSaveBlock2Ptr->optionsLanguage == ENG)
 		StringCopy(strbuf, gText_Time);
-	if (gSaveBlock2Ptr->optionsLanguage == SPA)
-		StringCopy(strbuf, gText_TimeSpa);
 	StringAppend(strbuf, time);
 	PrintMainMenuItem(strbuf, 128, 56, 0);
 }
@@ -629,10 +580,7 @@ static void PrintBadgeCount(void)
     }
 	if (badgecount)
 	{
-		if (gSaveBlock2Ptr->optionsLanguage == ENG)
 			StringCopy(strbuf, gText_Badges);
-		if (gSaveBlock2Ptr->optionsLanguage == SPA)
-			StringCopy(strbuf, gText_BadgesSpa);
 		ConvertIntToDecimalStringN(badgeCount, badgecount, STR_CONV_MODE_LEADING_ZEROS, 1);
 		StringAppend(strbuf, badgeCount);
 		PrintMainMenuItem(strbuf, 128, 24, 0);
@@ -642,18 +590,12 @@ static void PrintBadgeCount(void)
 static void PrintLocation(void)
 {
 	GetMapName(gStringVar4, Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum)->regionMapSectionId, 0);
-	if (gSaveBlock2Ptr->optionsLanguage == ENG)
-		PrintMainMenuItem(gStringVar4, 128, 8, 0);
-	if (gSaveBlock2Ptr->optionsLanguage == SPA)
-		PrintMainMenuItem(gStringVar4, 128, 8, 0);
+	PrintMainMenuItem(gStringVar4, 128, 8, 0);
 }
 
 static void PrintTeam(void)
 {
-	if (gSaveBlock2Ptr->optionsLanguage == ENG)
 		PrintMainMenuItem(gText_Team, 24, 56, 0);
-	if (gSaveBlock2Ptr->optionsLanguage == SPA)
-		PrintMainMenuItem(gText_TeamSpa, 24, 56, 0);
 }
 
 static void DestroyAllSprites(void)
