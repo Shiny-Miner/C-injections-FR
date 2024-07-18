@@ -1,15 +1,25 @@
 #include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"
+#include "decompress.h"
+#include "graphics.h"
 #include "task.h"
 #include "save.h"
 #include "event_data.h"
+#include "field_effect.h"
 #include "menu.h"
+#include "option_menu.h"
+#include "map_name_popup.h"
+#include "region_map.h"
+#include "field_player_avatar.h"
+#include "event_object_movement.h"
+#include "pokemon_icon.h"
+#include "pokedex_screen.h"
 #include "link.h"
 #include "oak_speech.h"
+#include "palette.h"
+#include "pokeball.h"
 #include "overworld.h"
-#include "quest_log.h"
-#include "mystery_gift_menu.h"
 #include "strings.h"
 #include "title_screen.h"
 #include "help_system.h"
@@ -17,22 +27,29 @@
 #include "text_window.h"
 #include "text_window_graphics.h"
 #include "constants/songs.h"
+#include "constants/species.h"
+#include "main.h"
+#include "naming_screen.h"
+#include "string_util.h"
+
+enum menuAction
+{
+	NEWGAME,
+	CONTINUE,
+	OPTION,
+};
 
 enum MainMenuType
 {
     MAIN_MENU_NEWGAME = 0,
     MAIN_MENU_CONTINUE,
-    MAIN_MENU_MYSTERYGIFT
 };
 
 enum MainMenuWindow
 {
-    MAIN_MENU_WINDOW_NEWGAME_ONLY = 0,
-    MAIN_MENU_WINDOW_CONTINUE,
-    MAIN_MENU_WINDOW_NEWGAME,
-    MAIN_MENU_WINDOW_MYSTERYGIFT,
+    MAIN_MENU_WINDOW_TEXT = 0,
     MAIN_MENU_WINDOW_ERROR,
-    MAIN_MENU_WINDOW_COUNT
+    MAIN_MENU_WINDOW_COUNT,
 };
 
 #define tMenuType  data[0]
@@ -41,6 +58,10 @@ enum MainMenuWindow
 #define tUnused8         data[8]
 #define tMGErrorMsgState data[9]
 #define tMGErrorType     data[10]
+
+#define FLAG_POKEDEX_GET  0x829
+#define FLAG_BADGE_01_GET 0x820
+#define FLAG_BADGE_08_GET 0x827
 
 static bool32 MainMenuGpuInit(u8 a0);
 static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId);
@@ -52,61 +73,37 @@ static void Task_PrintMainMenuText(u8 taskId);
 static void Task_WaitDma3AndFadeIn(u8 taskId);
 static void Task_UpdateVisualSelection(u8 taskId);
 static void Task_HandleMenuInput(u8 taskId);
+static void PrintMessageOnWindow4(const u8 *str);
 static void Task_ExecuteMainMenuSelection(u8 taskId);
-static void Task_MysteryGiftError(u8 taskId);
 static void Task_ReturnToTileScreen(u8 taskId);
 static void MoveWindowByMenuTypeAndCursorPos(u8 menuType, u8 cursorPos);
 static bool8 HandleMenuInput(u8 taskId);
-static void PrintMessageOnWindow4(const u8 *str);
 static void PrintContinueStats(void);
 static void PrintPlayerName(void);
 static void PrintPlayTime(void);
 static void PrintDexCount(void);
 static void PrintBadgeCount(void);
+static void PrintLocation(void);
+static void PrintTeam(void);
+static void DestroyAllSprites(void);
+static void LoadOverWorld(u8 anim);
+static void LoadMonIcon(u8 anim);
 static void LoadUserFrameToBg(u8 bgId);
 static void SetStdFrame0OnBg(u8 bgId);
+static void PrintMainMenuItem(const u8 *string, u8 left, u8 top, u8 text_color);
 static void MainMenu_DrawWindow(const struct WindowTemplate * template);
 static void MainMenu_EraseWindow(const struct WindowTemplate * template);
+static const u8 sTextColor1[] = { 1, 2, 3 };
 
-static const u8 sString_Dummy[] = _("");
-static const u8 sString_Newline[] = _("\n");
-
-static const struct WindowTemplate sWindowTemplate[] = {
-    [MAIN_MENU_WINDOW_NEWGAME_ONLY] = {
+static const struct WindowTemplate sMainMenuWindowTemplates[] = {
+    [MAIN_MENU_WINDOW_TEXT] = {
         .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 1,
-        .width = 24,
-        .height = 2,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 30,
+        .height = 20,
         .paletteNum = 15,
-        .baseBlock = 0x001
-    }, 
-    [MAIN_MENU_WINDOW_CONTINUE] = {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 1,
-        .width = 24,
-        .height = 10,
-        .paletteNum = 15,
-        .baseBlock = 0x001
-    }, 
-    [MAIN_MENU_WINDOW_NEWGAME] = {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 13,
-        .width = 24,
-        .height = 2,
-        .paletteNum = 15,
-        .baseBlock = 0x0f1
-    }, 
-    [MAIN_MENU_WINDOW_MYSTERYGIFT] = {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 17,
-        .width = 24,
-        .height = 2,
-        .paletteNum = 15,
-        .baseBlock = 0x121
+        .baseBlock = 0
     }, 
     [MAIN_MENU_WINDOW_ERROR] = {
         .bg = 0,
@@ -114,29 +111,39 @@ static const struct WindowTemplate sWindowTemplate[] = {
         .tilemapTop = 15,
         .width = 24,
         .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 0x001
+        .paletteNum = 14,
+        .baseBlock = 16
     }, 
     [MAIN_MENU_WINDOW_COUNT] = DUMMY_WIN_TEMPLATE
 };
 
-static const u16 sBg_Pal[] = INCBIN_U16("graphics/main_menu/bg.gbapal");
-static const u16 sTextbox_Pal[] = INCBIN_U16("graphics/main_menu/textbox.gbapal");
-
-static const u8 sTextColor1[] = { 10, 11, 12 };
-
-static const u8 sTextColor2[] = { 10,  1, 12 };
-
-static const struct BgTemplate sBgTemplate[] = {
+static const struct BgTemplate sMainMenuBGTemplate[] = {
     {
-        .bg = 0,
+        .bg = 0,		//Text
+        .charBaseIndex = 2, //2 * 0x4000 = 0x8000
+        .mapBaseIndex = 31,  // 31 * 0x800 = 0xF800
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 0,
+        .baseTile = 0,
+    }, {
+        .bg = 1,		//BG
         .charBaseIndex = 0,
-        .mapBaseIndex = 30,
-        .priority = 0
+        .mapBaseIndex = 29,  // 29 * 0x800 = 0xE800
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 1,
+        .baseTile = 0,
+    }, {
+        .bg = 2,		//BG
+        .charBaseIndex = 1, // 1 * 0x4000 = 0x4000
+        .mapBaseIndex = 30,  // 30 * 0x800 = 0xF000
+        .screenSize = 0,
+        .paletteMode = 0,
+        .priority = 2,
+        .baseTile = 0,
     }
 };
-
-static const u8 sMenuCursorYMax[] = { 0, 1, 2 };
 
 static void CB2_MainMenu(void)
 {
@@ -155,19 +162,20 @@ static void VBlankCB_MainMenu(void)
 
 void CB2_InitMainMenu(void)
 {
-    MainMenuGpuInit(1);
+    MainMenuGpuInit(FALSE);
 }
 
-static void CB2_InitMainMenu_2(void)
+static void CB2_InitMainMenuFromOptions(void)
 {
-    MainMenuGpuInit(1);
+    MainMenuGpuInit(TRUE);
 }
 
 static bool32 MainMenuGpuInit(u8 a0)
 {
     u8 taskId;
-
+	
     SetVBlankCallback(NULL);
+	SetHBlankCallback(NULL);
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     SetGpuReg(REG_OFFSET_BG2CNT, 0);
     SetGpuReg(REG_OFFSET_BG1CNT, 0);
@@ -175,38 +183,41 @@ static bool32 MainMenuGpuInit(u8 a0)
     SetGpuReg(REG_OFFSET_BG2HOFS, 0);
     SetGpuReg(REG_OFFSET_BG2VOFS, 0);
     SetGpuReg(REG_OFFSET_BG1HOFS, 0);
-    SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1VOFS, -4);
     SetGpuReg(REG_OFFSET_BG0HOFS, 0);
     SetGpuReg(REG_OFFSET_BG0VOFS, 0);
-    DmaFill16(3, 0, (void *)VRAM, VRAM_SIZE);
-    DmaFill32(3, 0, (void *)OAM, OAM_SIZE);
-    DmaFill16(3, 0, (void *)(PLTT + 2), PLTT_SIZE - 2);
+    DmaClearLarge16(3, (void*)(VRAM), VRAM_SIZE, 0x1000);
+    DmaClear32(3, OAM, OAM_SIZE);
+    DmaClear16(3, PLTT, PLTT_SIZE);
     ScanlineEffect_Stop();
     ResetTasks();
     ResetSpriteData();
     FreeAllSpritePalettes();
     ResetPaletteFade();
     ResetBgsAndClearDma3BusyFlags(FALSE);
-    InitBgsFromTemplates(0, sBgTemplate, NELEMS(sBgTemplate));
-    ChangeBgX(0, 0, 0);
-    ChangeBgY(0, 0, 0);
-    ChangeBgX(1, 0, 0);
-    ChangeBgY(1, 0, 0);
-    ChangeBgX(2, 0, 0);
-    ChangeBgY(2, 0, 0);
-    InitWindows(sWindowTemplate);
+    InitBgsFromTemplates(0, sMainMenuBGTemplate, NELEMS(sMainMenuBGTemplate));
+    InitWindows(sMainMenuWindowTemplates);
     DeactivateAllTextPrinters();
-    LoadPalette(sBg_Pal, BG_PLTT_ID(0), sizeof(sBg_Pal));
-    LoadPalette(sTextbox_Pal, BG_PLTT_ID(15), sizeof(sTextbox_Pal));
+	LoadPalette(gPalMainMenuBG, 0, 32);
+	LoadPalette(gPalMainMenuNoSel, 16, 96);
+	LoadPalette(gPalMainMenuSel, 16, 32);
+	LoadPalette(sMainMenuTextPal, 240, 10);
+	if (gSaveBlock2Ptr->playerGender != MALE)
+    {
+		LoadPalette(sMainMenuTextFemalePal, 243, 4);
+    }
     SetGpuReg(REG_OFFSET_WIN0H, 0);
     SetGpuReg(REG_OFFSET_WIN0V, 0);
     SetGpuReg(REG_OFFSET_WININ, 0);
     SetGpuReg(REG_OFFSET_WINOUT, 0);
-    SetGpuReg(REG_OFFSET_BLDCNT, 0);
-    SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+	SetGpuReg(REG_OFFSET_BLDCNT, 0x442);
+	SetGpuReg(REG_OFFSET_BLDALPHA, 0x8);
     SetGpuReg(REG_OFFSET_BLDY, 0);
+	LZ77UnCompVram(gTilesMainMenuBG1, (void *)VRAM);
+	LZ77UnCompVram(gTilesMainMenuBG2, (void *)(VRAM + 0x4000));
+	LZ77UnCompVram(gMapMainMenuBG2, (void *)(VRAM + 0xF000));    
     SetMainCallback2(CB2_MainMenu);
-    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON);
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
     taskId = CreateTask(Task_SetWin0BldRegsAndCheckSaveFile, 0);
     gTasks[taskId].tCursorPos = 0;
     gTasks[taskId].tUnused8 = a0;
