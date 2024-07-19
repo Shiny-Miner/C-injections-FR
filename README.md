@@ -2,6 +2,7 @@ To support this types of codes and coders join our discord https://discord.com/i
 # Continue screen-BW
 A C injection for inserting a new  continue screen from Pokemon B/W to BPRE(firered). This code is taken from a pokefirered rom hack.
 #Screenshot:
+![](IMG_20240719_200734.jpg)
 
 ## Credits : Ansh, Shiny-Miner, Compumaxx
 ***Notes:*** 
