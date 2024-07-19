@@ -1,24 +1,12 @@
-# Pokemon GBA hack template
- Plantilla para realizar hacks en C en juegos de pokémon GBA.
+To support this types of codes and coders join our discord https://discord.com/invite/axNX3rhR9K
+# Continue screen-BW
+A C injection for inserting a new  continue screen from Pokemon B/W to BPRE(firered). This code is taken from a pokefirered rom hack.
+#Screenshot:
 
-
-***Notas:***
-
-- DevkitARM y ARMIPS son necesarios.
-
-- Para compilar es necesario tener preproc.exe y gbagfx.exe dentro alguna ruta de la variable PATH
-
-- Abrir el archivo config.mk, buscar y cambiar fa0000 de la siguiente línea por un offset alineado con suficiente espacio libre:
-        `INSERT_INTO ?= 0x08fa0000`
-- En el archivo config.mk, buscar la siguiente línea
-        `ROM_CODE ?= BPRE`
-    - mantener  BPRE para compilar usando Fire Red
-    - cambiar a BPRS para compilar usando Rojo Fuego en español
-    - cambiar a BPEE para compilar usando Emerald
-
-- Compilan ejecutando make con su terminal, y una rom con la inyección aparecerá en una carpeta llamada `build`.
-
-- Pueden usar en un script `callasm` seguido por el offset+1 donde insertaron el código, para llamar la rutina.
-
-- Archivos dentro de la carpeta `include` fueron tomados de [**pokefirered**](https://github.com/pret/pokefirered).
+## Credits : Ansh, Shiny-Miner, Compumaxx
+***Notes:*** 
+- DevkitARM and ARMIPS are required. - To compile it is necessary to have preproc.exe and gbagfx.exe within some path of the PATH variable
+- Open the config.mk file, find and change fa0000 of the following line to an offset aligned with enough free space: `INSERT_INTO ?= 0x08fa0000
+- Compile by running make with your terminal, and a rom with the injection will appear in a folder called `build`.
+- Files inside the `include` folder were taken from [**pokefirered**](https://github.com/pret/pokefirered)..
 
