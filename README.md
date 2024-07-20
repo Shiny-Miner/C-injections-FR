@@ -4,7 +4,7 @@ A C injection for inserting a new  continue screen from Pokemon B/W to BPRE(fire
 #Screenshot:
 ![](IMG_20240719_200734.jpg)
 
-## Credits : Ansh, Shiny-Miner, Compumaxx
+## Credits : ansh860, Shiny-Miner, Compumaxx
 ***Notes:*** 
 - DevkitARM and ARMIPS are required. - To compile it is necessary to have preproc.exe and gbagfx.exe within some path of the PATH variable
 - Open the config.mk file, find and change fa0000 of the following line to an offset aligned with enough free space: `INSERT_INTO ?= 0x08fa0000
