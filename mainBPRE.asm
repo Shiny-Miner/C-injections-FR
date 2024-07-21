@@ -1,10 +1,10 @@
 .gba
 .thumb
-.open "BPRE.gba","build/rom_BPRE.gba", 0x08000000
+.open "BPRE0.gba","build/test.gba", 0x08000000
 //---------------------------------------------------
 
 //hooks
-.include "hooks/BPRE/specials_ptr.s"
+.include "hooks/BPRE/hooks.s"
 
 .align 4
 .org insertinto
