@@ -12,7 +12,7 @@ A C injection for inserting a new  continue screen from Pokemon B/W to BPRE(fire
 - Compile by running make with your terminal, and a rom with the injection will appear in a folder called `build`.
 - Files inside the `include` folder were taken from [**pokefirered**](https://github.com/pret/pokefirered)..
  # Fix for missing msvcp140.dll
-![]()
+![](image.png)
 
  If your program gives error like this then add the .dll file downloaded from this link to the armips folder. 
  https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=a81d90ac-aa75-4cf8-b14c-58bf348528fe&redirect_uri=https%3A%2F%2Fanswers.microsoft.com&response_type=code%20id_token&scope=openid%20profile&state=OpenIdConnect.AuthenticationProperties%3DaUSSLmdf1ul0BdJwbQkD2gNFU7c0mxBAX4SdJTVVlBE4zOcYVRMFxHHDh23cQKuM4bhOTtO1uEbuCfYc2nRzSu_6uOA3swOev_9AXJSF10AAQIt6lYFdO2hOgD5LzIuoPq0AvDGFNSjjNmjZPmjC1GZJUwvwECzgWjnB4cTDMYDSzXntFKK69u9F9p872d-M9EPFRdD-vHg3ogUW6p1oz5wuKgYVRZJZc8nZGBjzga77Kk6yRsm_wdlsg_u5L66gORv0wD-gexIh3pZ6mSmFBqjQQkPnWQOZNZ-QXxRoTWupYEUrzhyKkDXdukNQxPyXblYdijijdc-0UY-drKZSsg&response_mode=form_post&nonce=638575835974040108.YjQ4ZGI3MDQtOTJkZi00YTg4LWEwZDUtMTBjMTlmY2E2ODhhZDRmODEzMGItZDljNC00MDkyLWIwMDQtMzMxOTE3NmQ2NTUx&nopa=2&prompt=none&x-client-SKU=ID_NET472&x-client-ver=7.6.0.0
