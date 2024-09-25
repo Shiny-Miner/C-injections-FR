@@ -4931,7 +4931,7 @@ extern const u16 gUnknown_8E9C3F8[];
 extern const u16 gUnknown_8E9C418[];
 
 // pokedex_screen
-extern const u16 gDexScreen_TopMenuIconPals_AtoZ[];
-extern const u32 gDexScreen_TopMenuIconTiles_AtoZ[];
+extern const u32 gPokedexAreaScreenAreaUnknown_Gfx[];
+extern const u16 gPokedexAreaScreenAreaUnknown_Pal[];
 
 #endif //GUARD_GRAPHICS_H
