@@ -25,7 +25,6 @@
 #include "trainer_pokemon_sprites.h"
 #include "trig.h"
 #include "window.h"
-#include "constants/rgb.h"
 #include "constants/songs.h"
 
 enum
@@ -988,7 +987,7 @@ static const struct WindowTemplate sNewEntryInfoScreen_WindowTemplates[] =
 
 static const u8 sText_TenDashes2[] = _("----------");
 
-#include "data/pokemon_graphics/footprint_table.h"
+#include "include/footprint_table.h"
 
 // First character in range followed by number of characters in range for upper and lowercase
 static const u8 sLetterSearchRanges[][4] =
