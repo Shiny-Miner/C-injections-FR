@@ -15,9 +15,9 @@ export SRC := src
 export BINARY := $(BUILD)/linked.o
 export GRAPHICS := graphics
 
-export ARMIPS ?= armips.exe
-export GFX ?= gbagfx.exe
-export PREPROC ?= preproc.exe
+export ARMIPS ?= armips
+export GFX ?= gbagfx
+export PREPROC ?= preproc
 export LD := $(PREFIX)ld
 
 export ASFLAGS := -mthumb
