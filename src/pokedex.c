@@ -6,7 +6,6 @@
 #include "event_data.h"
 #include "gpu_regs.h"
 #include "graphics.h"
-#include "international_string_util.h"
 #include "main.h"
 #include "malloc.h"
 #include "menu.h"
