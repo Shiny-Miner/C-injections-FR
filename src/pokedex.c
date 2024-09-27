@@ -309,7 +309,7 @@ static void PrintSearchParameterTitle(u32, const u8 *);
 static void ClearSearchParameterBoxText(void);
 
 // const rom data
-#include "data/pokemon/pokedex_orders.h"
+#include "include/pokedex_orders.h"
 
 static const struct OamData sOamData_ScrollBar =
 {
@@ -850,8 +850,8 @@ static const u8 sText_TenDashes[] = _("----------");
 
 ALIGNED(4) static const u8 sExpandedPlaceholder_PokedexDescription[] = _("");
 
-#include "data/pokemon/pokedex_text.h"
-#include "data/pokemon/pokedex_entries.h"
+#include "include/pokedex_text.h"
+#include "include/pokedex_entries.h"
 
 static const u16 sSizeScreenSilhouette_Pal[] = INCBIN_U16("graphics/pokedex/size_silhouette.gbapal");
 
