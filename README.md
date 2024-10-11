@@ -1,3 +1,5 @@
+porting summary screen gen V
+https://github.com/CompuMaxx/TerranovaFR/commit/4961273f5c1e20e8bd2a760ced929aaeb7d0b573
 # Pokemon GBA hack template
  Plantilla para realizar hacks en C en juegos de pokémon GBA.
 
