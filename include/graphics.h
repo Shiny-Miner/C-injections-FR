@@ -4934,4 +4934,31 @@ extern const u16 gUnknown_8E9C418[];
 extern const u16 gDexScreen_TopMenuIconPals_AtoZ[];
 extern const u32 gDexScreen_TopMenuIconTiles_AtoZ[];
 
+//Summary Screen
+extern const u8 gFireRedMenuElements_Gfx[];
+extern const u16 gFireRedMenuElements2_Pal[];
+extern const u32 gIconStatusSummaryScreen[];
+extern const u32 gIconStatusSummaryScreenSpa[];
+extern const u16 gIconStatusPalSummaryScreen[];
+extern const u32 gExpBarSummaryScreen[];
+extern const u32 gHpBarSummaryScreen[];
+extern const u32 gHpBarSummaryScreenSpa[];
+extern const u16 gPal0SummaryScreen[];
+extern const u16 gPal1SummaryScreen[];
+extern const u16 gPal2SummaryScreen[];
+extern const u16 gSelectCursorPalette[];
+extern const u32 gSelectCursorGfxLeft[];
+extern const u32 gSelectCursorGfxRight[];
+extern const u16 gShinyIndicatorPalette[];
+extern const u32 gShinyIndicatorGfx[];
+extern const u16 gPalSummaryScreen[];
+extern const u32 gTilesSummaryScreen[];
+extern const u32 gMapSummaryScreenBg[];
+extern const u32 gMapSummaryScreenEgg[];
+extern const u32 gMapSummaryScreenKnownMoves[];
+extern const u32 gMapSummaryScreenMovesInfo[];
+extern const u32 gMapSummaryScreenMoves[];
+extern const u32 gMapSummaryScreenPokemonInfo[];
+extern const u32 gMapSummaryScreenPokemonSkills[];
+
 #endif //GUARD_GRAPHICS_H
