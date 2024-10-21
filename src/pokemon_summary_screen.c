@@ -614,7 +614,7 @@ static const union AnimCmd * const sUnknown_8463B40[] =
 static const u32 sUnknown_8463B88[] = INCBIN_U32( "graphics/interface/pokesummary_unk_8463B88.bin.lz");
 static const u32 sUnknown_8463C80[] = INCBIN_U32( "graphics/interface/pokesummary_unk_8463C80.bin.lz");
 
-#include "data/text/nature_names.h"
+#include "nature_names.h"
 
 static const u8 * const sUnknown_8463EC4[] = {
     gText_8419B44,
