@@ -339,9 +339,9 @@ extern const u32 gUnknown_8E9BBCC[];
 extern const u16 gUnknown_8E9B310[];
 extern const u32 gUnknown_8E9A460[];
 
-static const u32 sUnknown_84636C0[] = INCBIN_U32("graphics/interface/pokesummary_unk_84636C0.gbapal");
-static const u16 sUnknown_84636E0[] = INCBIN_U16("graphics/interface/pokesummary_unk_84636E0.gbapal");
-static const u32 sUnknown_8463700[] = INCBIN_U32("graphics/interface/pokesummary_unk_8463700.gbapal");
+static const u32 sUnknown_84636C0[] = INCBIN_U32("graphics/pokesummary_unk_84636C0.gbapal");
+static const u16 sUnknown_84636E0[] = INCBIN_U16("graphics/pokesummary_unk_84636E0.gbapal");
+static const u32 sUnknown_8463700[] = INCBIN_U32("graphics/pokesummary_unk_8463700.gbapal");
 
 static const struct OamData sUnknown_846398C =
 {
