@@ -11,6 +11,13 @@
 #include "pokemon_icon.h"
 #include "constants/songs.h"
 
+struct MoveMenuInfoIcon
+{
+    u8 width;
+    u8 height;
+    u16 offset;
+};
+
 const struct MoveMenuInfoIcon gMoveMenuInfoIcons[] =
 {
 { 12, 12, 0x000 },       // Unused
