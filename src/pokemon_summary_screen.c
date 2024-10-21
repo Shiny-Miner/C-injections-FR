@@ -581,8 +581,8 @@ static const union AnimCmd * const sUnknown_8463AFC[] =
     sUnknown_8463AF4
 };
 
-static const u16 sUnknown_8463B00[] = INCBIN_U16("graphics/interface/pokesummary_unk_8463B00.gbapal");
-static const u32 sUnknown_8463B20[] = INCBIN_U32("graphics/interface/pokesummary_unk_8463B20.4bpp.lz");
+static const u16 sUnknown_8463B00[] = INCBIN_U16("graphics/pokesummary_unk_8463B00.gbapal");
+static const u32 sUnknown_8463B20[] = INCBIN_U32("graphics/pokesummary_unk_8463B20.4bpp.lz");
 
 static const struct OamData sUnknown_8463B30 =
 {
@@ -611,8 +611,8 @@ static const union AnimCmd * const sUnknown_8463B40[] =
     sUnknown_8463B38
 };
 
-static const u32 sUnknown_8463B88[] = INCBIN_U32( "graphics/interface/pokesummary_unk_8463B88.bin.lz");
-static const u32 sUnknown_8463C80[] = INCBIN_U32( "graphics/interface/pokesummary_unk_8463C80.bin.lz");
+static const u32 sUnknown_8463B88[] = INCBIN_U32( "graphics/pokesummary_unk_8463B88.bin.lz");
+static const u32 sUnknown_8463C80[] = INCBIN_U32( "graphics/pokesummary_unk_8463C80.bin.lz");
 
 #include "nature_names.h"
 
