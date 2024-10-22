@@ -80,3 +80,16 @@ const u8 gText_8419C2BSpa[] = _("Estad. Pokémon");
 const u8 gText_TotalSpa[] = _("Total");
 const u8 gText_IvTittleSpa[] = _("Valores Individuales");
 const u8 gText_EvTittleSpa[] = _("Puntos de Esfuerzo");
+const u8 gText_8419C39Spa[] = _("Mov. Conocidos");
+const u8 gText_8419C45Spa[] = _("No hay datos.");
+const u8 gText_8419C4DSpa[] = _("Puntos Exp.");
+const u8 gText_8419C59Spa[] = _("Sig. Nivel");
+const u8 gText_8419C62Spa[] = _("{DPAD_RIGHT}Pág. {A_BUTTON}Salir");
+const u8 gText_8419C72Spa[] = _("{A_BUTTON}Salir");
+const u8 gText_8419C7BSpa[] = _("{DPAD_LEFTRIGHT}Pág.");
+const u8 gText_8419C82Spa[] = _("{DPAD_LEFT}Pág. {A_BUTTON}Info.");
+const u8 gText_8419C92Spa[] = _("{DPAD_UPDOWN}Pág. {A_BUTTON}Cambio");
+const u8 gText_8419CA2Spa[] = _("{DPAD_UPDOWN}Sel.");
+const u8 gText_8419CA9Spa[] = _("{DPAD_UPDOWN}Sel. {A_BUTTON}Borrar");
+const u8 gText_8419CB9Spa[] = _("Los movimientos MO\nno se olvidan así.");
+
