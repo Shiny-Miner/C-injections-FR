@@ -1591,5 +1591,28 @@ extern const u8 gText_PSS_Accuracy[];
 extern const u8 gText_PSS_AccuracySpa[];
 extern const u8 gText_PSS_Effect[];
 extern const u8 gText_PSS_EffectSpa[];
+extern const u8 gText_8419B44Spa[];
+extern const u8 gText_8419B7BSpa[];
+extern const u8 gText_8419BAESpa[];
+extern const u8 gText_8419BDBSpa[];
+extern const u8 gText_8419A3DSpa[];
+extern const u8 gText_8419B18Spa[];
+extern const u8 gText_8419A6ESpa[];
+extern const u8 gText_8419B18Spa[];
+extern const u8 gText_8419AA2Spa[];
+extern const u8 gText_8419ADESpa[];
+extern const u8 gText_8419B18Spa[];
+extern const u8 gText_8419B44[];
+extern const u8 gText_8419B7B[];
+extern const u8 gText_8419BAE[];
+extern const u8 gText_8419BDB[];
+extern const u8 gText_8419A3D[];
+extern const u8 gText_8419B18[];
+extern const u8 gText_8419A6E[];
+extern const u8 gText_8419B18[];
+extern const u8 gText_8419AA2[];
+extern const u8 gText_8419ADE[];
+extern const u8 gText_8419B18[];
+
 
 #endif //GUARD_STRINGS_H
