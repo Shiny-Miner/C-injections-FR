@@ -987,5 +987,18 @@ StartSpriteAnimIfDifferent = 0x080083a4|1;
 StartSpriteAffineAnim = 0x0800843c|1;
 StartSpriteAffineAnimIfDifferent = 0x08008468|1;
 
-
+sMonSummaryScreen = 0x203f3e4;
+sMonSkillsPrinterXpos = 0x203f3e8;
+sMonStatsIvsPrinterXpos = 0x203f3ec;
+sMonStatsEvsPrinterXpos = 0x203f3f0;
+sMoveSelectionCursorObjs = 0x203f3f4;
+sStatusIcon = 0x203F40A;
+sHpBarObjs = 0x203F40e;
+sExpBarObjs = 0x203F412;
+sPokerusIconObj = 0x203F416;
+sShinyStarObjData = 0x203F41a;
+sLastViewedMonIndex = 0x203F41e;
+sMoveSelectionCursorPos = 0x203F41f;
+sMoveSwapCursorPos = 0x203F420;
+sMonPicBounceState = 0x203F421;
 
