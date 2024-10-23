@@ -94,5 +94,8 @@ const u8 gText_8419CA9Spa[] = _("{DPAD_UPDOWN}Sel. {A_BUTTON}Borrar");
 const u8 gText_8419CB9Spa[] = _("Los movimientos MO\nno se olvidan así.");
 const u8 gText_LvSpa[] = _("Nv");
 const u8 gText_StringDummy[] = _("");
+const u8 gText_EggNicknameSpa[] = _("Huevo");
+const u8 gText_FameChecker_Cancel[] = _("Cancel");
+const u8 gText_FameChecker_CancelSpa[] = _("Salir");
 
 
