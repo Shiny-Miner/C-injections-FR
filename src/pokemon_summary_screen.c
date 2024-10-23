@@ -318,18 +318,18 @@ struct Struct203B168
     u16 palTag; /* 0x06 */
 };
 
-static EWRAM_DATA struct PokemonSummaryScreenData * sMonSummaryScreen = NULL;
-static EWRAM_DATA struct Struct203B144 * sUnknown_203B144 = NULL;
-static EWRAM_DATA struct Struct203B148 * sUnknown_203B148[4] = {};
-static EWRAM_DATA struct Struct203B158 * sStatusIconSummaryScreen = NULL;
-static EWRAM_DATA struct Struct203B15C * sHpBarSummaryScreen = NULL;
-static EWRAM_DATA struct Struct203B160 * sExpBarSummaryScreen = NULL;
-static EWRAM_DATA struct Struct203B164 * sUnknown_203B164 = NULL;
-static EWRAM_DATA struct Struct203B168 * sUnknown_203B168 = NULL;
-static EWRAM_DATA u8 sLastViewedMonIndex = 0;
-static EWRAM_DATA u8 sUnknown_203B16D = 0;
-static EWRAM_DATA u8 sUnknown_203B16E = 0;
-static EWRAM_DATA struct Struct203B170 * sUnknown_203B170 = NULL;
+extern EWRAM_DATA struct PokemonSummaryScreenData * sMonSummaryScreen = NULL;
+extern EWRAM_DATA struct Struct203B144 * sUnknown_203B144 = NULL;
+extern EWRAM_DATA struct Struct203B148 * sUnknown_203B148[4] = {};
+extern EWRAM_DATA struct Struct203B158 * sStatusIconSummaryScreen = NULL;
+extern EWRAM_DATA struct Struct203B15C * sHpBarSummaryScreen = NULL;
+extern EWRAM_DATA struct Struct203B160 * sExpBarSummaryScreen = NULL;
+extern EWRAM_DATA struct Struct203B164 * sUnknown_203B164 = NULL;
+extern EWRAM_DATA struct Struct203B168 * sUnknown_203B168 = NULL;
+extern EWRAM_DATA u8 sLastViewedMonIndex = 0;
+extern EWRAM_DATA u8 sUnknown_203B16D = 0;
+extern EWRAM_DATA u8 sUnknown_203B16E = 0;
+extern EWRAM_DATA struct Struct203B170 * sUnknown_203B170 = NULL;
 
 extern const u32 gUnknown_8E9B750[];
 extern const u32 gUnknown_8E9B950[];
