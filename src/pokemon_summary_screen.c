@@ -318,18 +318,20 @@ struct Struct203B168
     u16 palTag; /* 0x06 */
 };
 
-extern EWRAM_DATA struct PokemonSummaryScreenData * sMonSummaryScreen = NULL;
-extern EWRAM_DATA struct Struct203B144 * sUnknown_203B144 = NULL;
-extern EWRAM_DATA struct Struct203B148 * sUnknown_203B148[4] = {};
-extern EWRAM_DATA struct Struct203B158 * sStatusIconSummaryScreen = NULL;
-extern EWRAM_DATA struct Struct203B15C * sHpBarSummaryScreen = NULL;
-extern EWRAM_DATA struct Struct203B160 * sExpBarSummaryScreen = NULL;
-extern EWRAM_DATA struct Struct203B164 * sUnknown_203B164 = NULL;
-extern EWRAM_DATA struct Struct203B168 * sUnknown_203B168 = NULL;
-extern EWRAM_DATA u8 sLastViewedMonIndex = 0;
-extern EWRAM_DATA u8 sUnknown_203B16D = 0;
-extern EWRAM_DATA u8 sUnknown_203B16E = 0;
-extern EWRAM_DATA struct Struct203B170 * sUnknown_203B170 = NULL;
+extern struct PokemonSummaryScreenData * sMonSummaryScreen;
+extern struct MonSkillsPrinterXpos * sMonSkillsPrinterXpos;
+extern struct MonStatsIvsPrinterXpos * sMonStatsIvsPrinterXpos;
+extern struct MonStatsEvsPrinterXpos * sMonStatsEvsPrinterXpos;
+extern struct MoveSelectionCursor * sMoveSelectionCursorObjs[4];
+extern struct MonStatusIconObj * sStatusIcon;
+extern struct HpBarObjs * sHpBarObjs;
+extern struct ExpBarObjs * sExpBarObjs;
+extern struct PokerusIconObj * sPokerusIconObj;
+extern struct ShinyStarObjData * sShinyStarObjData;
+extern u8 sLastViewedMonIndex;
+extern u8 sMoveSelectionCursorPos;
+extern u8 sMoveSwapCursorPos;
+extern struct MonPicBounceState * sMonPicBounceState;
 
 extern const u32 gUnknown_8E9B750[];
 extern const u32 gUnknown_8E9B950[];
