@@ -3864,20 +3864,20 @@ static void sub_8139768(struct Sprite * sprite)
         switch (sUnknown_203B170->unk08)
         {
         case 0:
-            sprite->pos1.y += sUnknown_8463FBE[sUnknown_203B170->unk00++];
+            sprite->y += sUnknown_8463FBE[sUnknown_203B170->unk00++];
             v0 = NELEMS(sUnknown_8463FBE);
             break;
         case 1:
-            sprite->pos1.y += sUnknown_8463FC1[sUnknown_203B170->unk00++];
+            sprite->y += sUnknown_8463FC1[sUnknown_203B170->unk00++];
             v0 = NELEMS(sUnknown_8463FC1);
             break;
         case 2:
-            sprite->pos1.y += sUnknown_8463FC6[sUnknown_203B170->unk00++];
+            sprite->y += sUnknown_8463FC6[sUnknown_203B170->unk00++];
             v0 = NELEMS(sUnknown_8463FC6);
             break;
         case 3:
         default:
-            sprite->pos1.y += sUnknown_8463FCD[sUnknown_203B170->unk00++];
+            sprite->y += sUnknown_8463FCD[sUnknown_203B170->unk00++];
             v0 = NELEMS(sUnknown_8463FCD);
             break;
         }
@@ -3903,7 +3903,7 @@ static void sub_8139868(struct Sprite * sprite)
     default:
         if (sUnknown_203B170->tileTag++ >= 120)
         {
-            sprite->pos1.x += sUnknown_8463FD4[sUnknown_203B170->unk00];
+            sprite->x += sUnknown_8463FD4[sUnknown_203B170->unk00];
             if (++sUnknown_203B170->unk00 >= NELEMS(sUnknown_8463FD4))
             {
                 sUnknown_203B170->unk00 = 0;
@@ -3915,7 +3915,7 @@ static void sub_8139868(struct Sprite * sprite)
     case 1:
         if (sUnknown_203B170->tileTag++ >= 90)
         {
-            sprite->pos1.x += sUnknown_8463FDF[sUnknown_203B170->unk00];
+            sprite->x += sUnknown_8463FDF[sUnknown_203B170->unk00];
             if (++sUnknown_203B170->unk00 >= NELEMS(sUnknown_8463FDF))
             {
                 sUnknown_203B170->unk00 = 0;
@@ -3927,7 +3927,7 @@ static void sub_8139868(struct Sprite * sprite)
     case 2:
         if (sUnknown_203B170->tileTag++ >= 60)
         {
-            sprite->pos1.x += sUnknown_8463FEA[sUnknown_203B170->unk00];
+            sprite->x += sUnknown_8463FEA[sUnknown_203B170->unk00];
             if (++sUnknown_203B170->unk00 >= NELEMS(sUnknown_8463FEA))
             {
                 sUnknown_203B170->unk00 = 0;
@@ -4184,7 +4184,7 @@ static void sub_813A124(struct Sprite * sprite)
         if (sMonSummaryScreen->unk3268 == TRUE && i > 1)
             continue;
 
-        sUnknown_203B148[i]->sprite->pos1.y = sUnknown_203B16D * 28 + 34;
+        sUnknown_203B148[i]->sprite->y = sUnknown_203B16D * 28 + 34;
     }
 
     if (sMonSummaryScreen->unk3268 != TRUE)
@@ -4308,17 +4308,17 @@ static void PSS_SetInvisibleIconStatus(u8 invisible)
 
     if (sMonSummaryScreen->curPageIndex == PSS_PAGE_MOVES_INFO)
     {
-        if (sStatusIconSummaryScreen->sprite->pos1.y != 45)
+        if (sStatusIconSummaryScreen->sprite->y != 45)
         {
-            sStatusIconSummaryScreen->sprite->pos1.x = 16;
-            sStatusIconSummaryScreen->sprite->pos1.y = 45;
+            sStatusIconSummaryScreen->sprite->x = 16;
+            sStatusIconSummaryScreen->sprite->y = 45;
             return;
         }
     }
-    else if (sStatusIconSummaryScreen->sprite->pos1.y != 38)
+    else if (sStatusIconSummaryScreen->sprite->y != 38)
     {
-        sStatusIconSummaryScreen->sprite->pos1.x = 214;
-        sStatusIconSummaryScreen->sprite->pos1.y = 38;
+        sStatusIconSummaryScreen->sprite->x = 214;
+        sStatusIconSummaryScreen->sprite->y = 38;
         return;
     }
 }
@@ -4693,13 +4693,13 @@ static void sub_813ACF8(u8 invisible)
     if (sMonSummaryScreen->curPageIndex == PSS_PAGE_MOVES_INFO)
     {
         sUnknown_203B164->sprite->invisible = TRUE;
-        sUnknown_203B164->sprite->pos1.x = 16;
-        sUnknown_203B164->sprite->pos1.y = 44;
+        sUnknown_203B164->sprite->x = 16;
+        sUnknown_203B164->sprite->y = 44;
     }
     else
     {
-        sUnknown_203B164->sprite->pos1.x = 114;
-        sUnknown_203B164->sprite->pos1.y = 92;
+        sUnknown_203B164->sprite->x = 114;
+        sUnknown_203B164->sprite->y = 92;
     }
 }
 
@@ -4764,13 +4764,13 @@ static void sub_813AEB0(u8 invisible)
 
     if (sMonSummaryScreen->curPageIndex == PSS_PAGE_MOVES_INFO)
     {
-        sUnknown_203B168->sprite->pos1.x = 126;
-        sUnknown_203B168->sprite->pos1.y = 20;
+        sUnknown_203B168->sprite->x = 126;
+        sUnknown_203B168->sprite->y = 20;
     }
     else
     {
-        sUnknown_203B168->sprite->pos1.x = 166;
-        sUnknown_203B168->sprite->pos1.y = 50;
+        sUnknown_203B168->sprite->x = 166;
+        sUnknown_203B168->sprite->y = 50;
     }
 }
 
@@ -4822,8 +4822,8 @@ static void PSS_LoadMarkings(void)
     if (sMonSummaryScreen->markingSprite != NULL)
     {
         StartSpriteAnim(sMonSummaryScreen->markingSprite, markings);
-        sMonSummaryScreen->markingSprite->pos1.x = 208;
-        sMonSummaryScreen->markingSprite->pos1.y = 114;
+        sMonSummaryScreen->markingSprite->x = 208;
+        sMonSummaryScreen->markingSprite->y = 114;
     }
 
     PSS_SetInvisibleMarkings(1);
