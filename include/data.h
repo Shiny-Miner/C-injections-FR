@@ -61,4 +61,7 @@ extern const struct SpriteFrameImage gTrainerBackPicTable_OldMan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RSBrendan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_RSMay[];
 
+extern const u8 gMoveNamesSpa[][13];
+extern const u8 *const gAbilityDescriptionSpaPointers[ABILITIES_COUNT];
+extern const u8 gAbilityNamesSpa[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1];
 #endif // GUARD_DATA_H
