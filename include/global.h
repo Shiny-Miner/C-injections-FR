@@ -12,6 +12,7 @@
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
+#define OT_NAME_LENGTH 7
 
 // to help in decompiling
 //#define asm_comment(x) asm volatile("@ -- " x " -- ")
