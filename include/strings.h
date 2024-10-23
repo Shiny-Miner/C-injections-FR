@@ -1697,6 +1697,9 @@ extern const u8 gText_StringDummy[];
 extern const u8 gText_8419ADE[];
 extern const u8 gText_8419B18[];
 extern const u8 gText_LvSpa[];
+extern const u8 gText_FameChecker_Cancel[];
+extern const u8 gText_FameChecker_CancelSpa[];
+extern const u8 gText_EggNicknameSpa[];
 
 
 #endif //GUARD_STRINGS_H
