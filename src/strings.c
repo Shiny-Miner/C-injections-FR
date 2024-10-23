@@ -92,4 +92,7 @@ const u8 gText_8419C92Spa[] = _("{DPAD_UPDOWN}Pág. {A_BUTTON}Cambio");
 const u8 gText_8419CA2Spa[] = _("{DPAD_UPDOWN}Sel.");
 const u8 gText_8419CA9Spa[] = _("{DPAD_UPDOWN}Sel. {A_BUTTON}Borrar");
 const u8 gText_8419CB9Spa[] = _("Los movimientos MO\nno se olvidan así.");
+const u8 gText_LvSpa[] = _("Nv");
+const u8 gText_StringDummy[] = _("");
+
 
