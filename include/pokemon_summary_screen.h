@@ -47,6 +47,17 @@ enum PokemonSummaryScreenState3270
     PSS_STATE3270_ATEXIT_WAITFADE
 };
 
+enum PokemonSummaryScreenState3270
+{
+    PSS_STATE3270_0,
+    PSS_STATE3270_1,
+    PSS_STATE3270_2,
+    PSS_STATE3270_3,
+    PSS_STATE3270_4,
+    PSS_STATE3270_5,
+    PSS_STATE3270_6
+};
+
 enum PokemonSummaryScreenStat
 {
     PSS_STAT_ATK,
