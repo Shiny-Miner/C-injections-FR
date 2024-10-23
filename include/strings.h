@@ -1693,9 +1693,10 @@ extern const u8 gText_8419B18[];
 extern const u8 gText_8419AA2[];
 extern const u8 gText_8419ADE[];
 extern const u8 gText_8419B18[];
-
+extern const u8 gText_StringDummy[];
 extern const u8 gText_8419ADE[];
 extern const u8 gText_8419B18[];
+extern const u8 gText_LvSpa[];
 
 
 #endif //GUARD_STRINGS_H
