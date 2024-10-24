@@ -4955,10 +4955,24 @@ extern const u16 gPalSummaryScreen[];
 extern const u32 gTilesSummaryScreen[];
 extern const u32 gMapSummaryScreenBg[];
 extern const u32 gMapSummaryScreenEgg[];
-extern const u32 gMapSummaryScreenKnownMoves[];
-extern const u32 gMapSummaryScreenMovesInfo[];
-extern const u32 gMapSummaryScreenMoves[];
 extern const u32 gMapSummaryScreenPokemonInfo[];
 extern const u32 gMapSummaryScreenPokemonSkills[];
+extern const u32 gMapSummaryScreenKnownMoves[];
+extern const u32 gMapSummaryScreenMoves[];
+extern const u32 gMapSummaryScreenMovesInfo[];
+extern const u32 gMapSummaryScreenMovesSelect[];
+extern const u32 gMapSummaryScreenEggTitle[];
+extern const u32 gMapSummaryScreenEggTitle2[];
+extern const u32 gMapSummaryScreenPokemonInfoTitle[];
+extern const u32 gMapSummaryScreenPokemonInfoTitle2[];
+extern const u32 gMapSummaryScreenPokemonSkillsTitle[];
+extern const u32 gMapSummaryScreenPokemonSkillsTitle2[];
+extern const u32 gMapSummaryScreenPokemonStats[];
+extern const u32 gMapSummaryScreenPokemonStatsAnim[];
+extern const u32 gMapSummaryScreenPokemonStatsIvsTitle[];
+extern const u32 gMapSummaryScreenPokemonStatsEvsTitle[];
+extern const u32 gMapSummaryScreenKnownMovesTitle[];
+extern const u32 gMapSummaryScreenKnownMovesTitle2[];
+
 
 #endif //GUARD_GRAPHICS_H
