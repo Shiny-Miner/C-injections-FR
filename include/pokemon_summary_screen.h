@@ -26,6 +26,18 @@ enum PokemonSummaryScreenMode
     PSS_MODE_BOX,
 };
 
+enum PokemonSummaryScreenStatIvsEvs
+{
+    IVS_EVS_STAT_HP,
+    IVS_EVS_STAT_ATK,
+    IVS_EVS_STAT_DEF,
+    IVS_EVS_STAT_SPA,
+    IVS_EVS_STAT_SPD,
+    IVS_EVS_STAT_SPE,
+    IVS_EVS_STAT_TOTAL,
+};
+
+
 enum PokemonSummaryScreenPage
 {
     PSS_PAGE_INFO,
