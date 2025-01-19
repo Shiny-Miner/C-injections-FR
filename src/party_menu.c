@@ -36,7 +36,7 @@
 #include "metatile_behavior.h"
 #include "naming_screen.h"
 #include "overworld.h"
-#include "party_menu.h"
+#include "include/party_menu.h"
 #include "player_pc.h"
 #include "pokedex.h"
 #include "pokemon.h"
