@@ -35,7 +35,7 @@
 const u8 gText_Options[] = _("Option");
 const u8 gText_Team[] = _("Team: "); 
 const u8 gText_Badges[] = _("Badges: ");
-const u8 gText_Time[] = _("Play Time: "); 
+const u8 gText_Time[] = _("Time: "); 
 const u8 gText_Pokedex[] = _("Pokedex: ");
 enum menuAction
 {
