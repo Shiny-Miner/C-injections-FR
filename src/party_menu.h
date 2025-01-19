@@ -780,8 +780,8 @@ static const u8 *const sHMDescriptionTable[] =
     [FIELD_MOVE_DIVE + 13]           = gText_DiveUnderwaterSpa,
 };
 
-static const u32 sHeldItemGfx[] = INCBIN_U32("graphics/party_menu/hold_icons.4bpp");
-static const u16 sHeldItemPalette[] = INCBIN_U16("graphics/party_menu/hold_icons.gbapal");
+static const u32 sHeldItemGfx[] = INCBIN_U32("graphics/hold_icons.4bpp");
+static const u16 sHeldItemPalette[] = INCBIN_U16("graphics/hold_icons.gbapal");
 
 static const struct OamData sOamData_HeldItem =
 {
