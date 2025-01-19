@@ -1,10 +1,11 @@
 To support this types of codes and coders join our discord https://discord.com/invite/axNX3rhR9K
 # Continue screen-BW
-A C injection for inserting a new  continue screen from Pokemon B/W to BPRE(firered). This code is taken from a pokefirered rom hack.
+A C injection for inserting a new  continue screen from Pokemon HG/SS to BPRE(firered). This code is taken from a pokefirered rom hack.
 #Screenshot:
-![](IMG_20240719_200734.jpg)
+![test-0](https://github.com/user-attachments/assets/a7e27149-9b92-4cf9-b6aa-24e0d4c6b7f9)
 
-## Credits : ansh860, Shiny-Miner, Compumaxx
+
+## Credits : Shiny-Miner, Compumaxx (BW one used as base)
 ***Notes:*** 
 - DevkitARM and ARMIPS are required. - To compile it is necessary to have preproc.exe and gbagfx.exe within some path of the PATH variable
 - Open the config.mk file, find and change fa0000 of the following line to an offset aligned with enough free space: `INSERT_INTO ?= 0x08fa0000
