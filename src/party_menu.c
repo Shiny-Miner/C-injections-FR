@@ -398,7 +398,7 @@ ALIGNED(4) EWRAM_DATA u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2] = {0}; // bits
 
 void (*gItemUseCB)(u8, TaskFunc);
 
-#include "data/pokemon/tutor_learnsets.h"
+#include "tutor_learnsets.h"
 #include "party_menu.h"
 
 void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
