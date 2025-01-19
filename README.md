@@ -1,5 +1,5 @@
 To support this types of codes and coders join our discord https://discord.com/invite/axNX3rhR9K
-# Continue screen-BW
+# Continue screen-HG/SS
 A C injection for inserting a new  continue screen from Pokemon HG/SS to BPRE(firered). This code is taken from a pokefirered rom hack.
 #Screenshot:
 ![test-0](https://github.com/user-attachments/assets/a7e27149-9b92-4cf9-b6aa-24e0d4c6b7f9)
