@@ -1,3 +1,5 @@
+#include "global.h"
+
 static const struct BgTemplate sPartyMenuBgTemplates[] =
 {
     {
