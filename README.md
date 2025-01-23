@@ -1,4 +1,5 @@
-To support this types of codes and coders join our discord https://discord.com/invite/axNX3rhR9K
+- To support this types of codes and coders join our discord https://discord.com/invite/axNX3rhR9K
+- Tutorial on compiling this (very very in-depth) https://github.com/Shiny-Miner/GBA-Binary-hacking-assets/wiki/Tutorial-:-Inserting-Shiny-Miner's-some-of-C-injctions
 # Continue screen-BW
 A C injection for inserting a new  continue screen from Pokemon B/W to BPRE(firered). This code is taken from a pokefirered rom hack.
 #Screenshot:
