@@ -1,6 +1,8 @@
 #include "global.h"
 #include "strings.h"
 #include "field_weather.h"
+#include "sprite.h"
+#include "constants/field_weather.h"
 
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
