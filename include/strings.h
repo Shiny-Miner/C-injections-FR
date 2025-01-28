@@ -1550,4 +1550,8 @@ extern const u8 gText_PokeSum_EggOrigin_NicePlace[];
 extern const u8 gText_PokeSum_EggOrigin_Spa[];
 extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
+// Map name pop-up
+extern const u8 gText_AM[];
+extern const u8 gText_PM[];
+
 #endif //GUARD_STRINGS_H
