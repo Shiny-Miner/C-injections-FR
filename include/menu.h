@@ -7,7 +7,7 @@
 
 #define MENU_NOTHING_CHOSEN -2
 #define MENU_B_PRESSED -1
-
+extern EWRAM_DATA u8 gPopupTaskId;
 struct MenuAction
 {
     const u8 *text;
@@ -61,7 +61,11 @@ u8 CreateTopBarWindowLoadPalette(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseT
 void ClearStdWindowAndFrameToTransparent(u8 windowId, bool8 copyToVram);
 void DrawStdFrameWithCustomTileAndPalette(u8 windowId, bool8 copyToVram, u16 baseTileNum, u8 paletteNum);
 void ClearDialogWindowAndFrameToTransparent(u8 windowId, bool8 copyToVram);
-void DrawDialogFrameWithCustomTileAndPalette(u8 windowId, bool8 copyToVram, u16 tileNum, u8 paletteNum);
+void DrawDialogFrameWithCustomTileAndPalette(u8 windowId, bool8 copyToVram, u16 tileNum, u8 paletteNum)
+u8 AddSecondaryPopUpWindow(void);
+u8 GetSecondaryPopUpWindowId(void);
+void RemoveSecondaryPopUpWindow(void);
+void HBlankCB_DoublePopupWindow(void);
 struct WindowTemplate SetWindowTemplateFields(u8 bg, u8 left, u8 top, u8 width, u8 height, u8 paletteNum, u16 baseBlock);
 
 #endif // GUARD_MENU_H
