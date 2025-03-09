@@ -6,7 +6,7 @@ A C injection for inserting a new  continue screen from Pokemon HG/SS to BPRE(fi
 ![test-0](https://github.com/user-attachments/assets/a7e27149-9b92-4cf9-b6aa-24e0d4c6b7f9)
 
 
-## Credits : Shiny-Miner, Compumaxx (BW one used as base)
+## Credits : Shiny-Miner, Compumaxx (BW one used as base) and Gold/Ruki for this background!
 ***Notes:*** 
 - DevkitARM and ARMIPS are required. - To compile it is necessary to have preproc.exe and gbagfx.exe within some path of the PATH variable
 - Open the config.mk file, find and change fa0000 of the following line to an offset aligned with enough free space: `INSERT_INTO ?= 0x08fa0000
